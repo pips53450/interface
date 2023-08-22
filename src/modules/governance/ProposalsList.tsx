@@ -1,5 +1,5 @@
-import { AaveGovernanceV2 } from '@bgd-labs/aave-address-book';
 import { LinearProgress, Paper } from '@mui/material';
+import { AaveGovernanceV2 } from '@scrollteam/aave-address-book';
 import Fuse from 'fuse.js';
 import { GovernancePageProps } from 'pages/governance/index.governance';
 import { useMemo, useRef, useState } from 'react';

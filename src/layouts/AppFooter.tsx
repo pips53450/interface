@@ -2,10 +2,10 @@ import { Trans } from '@lingui/macro';
 import { GitHub, Twitter } from '@mui/icons-material';
 import { Box, styled, SvgIcon, Typography } from '@mui/material';
 import { Link } from 'src/components/primitives/Link';
-import { useRootStore } from 'src/store/root';
 
+// import { useRootStore } from 'src/store/root';
 import DiscordIcon from '/public/icons/discord.svg';
-import LensLogoIcon from '/public/icons/lens-logo.svg';
+// import LensLogoIcon from '/public/icons/lens-logo.svg';
 
 interface StyledLinkProps {
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
@@ -21,11 +21,11 @@ const StyledLink = styled(Link)<StyledLinkProps>(({ theme }) => ({
 }));
 
 const FOOTER_ICONS = [
-  {
-    href: 'https://lenster.xyz/u/aaveaave',
-    icon: <LensLogoIcon />,
-    title: 'Aave',
-  },
+  // {
+  //   href: 'https://lenster.xyz/u/aaveaave',
+  //   icon: <LensLogoIcon />,
+  //   title: 'Aave',
+  // },
   {
     href: 'https://twitter.com/aaveaave?s=11&t=ZixFmUt1SIHLEMvx18gUGw',
     icon: <Twitter />,
@@ -44,18 +44,18 @@ const FOOTER_ICONS = [
 ];
 
 export function AppFooter() {
-  const [setAnalyticsConfigOpen] = useRootStore((store) => [store.setAnalyticsConfigOpen]);
+  // const [setAnalyticsConfigOpen] = useRootStore((store) => [store.setAnalyticsConfigOpen]);
   const FOOTER_LINKS = [
-    {
-      href: 'https://aave.com/term-of-use/',
-      label: <Trans>Terms</Trans>,
-      key: 'Terms',
-    },
-    {
-      href: 'https://aave.com/privacy-policy/',
-      label: <Trans>Privacy</Trans>,
-      key: 'Privacy',
-    },
+    // {
+    //   href: 'https://aave.com/term-of-use/',
+    //   label: <Trans>Terms</Trans>,
+    //   key: 'Terms',
+    // },
+    // {
+    //   href: 'https://aave.com/privacy-policy/',
+    //   label: <Trans>Privacy</Trans>,
+    //   key: 'Privacy',
+    // },
     {
       href: 'https://docs.aave.com/hub/',
       label: <Trans>Docs</Trans>,
@@ -66,20 +66,20 @@ export function AppFooter() {
       label: <Trans>FAQS</Trans>,
       key: 'FAQS',
     },
-    {
-      href: 'https://discord.com/invite/7kHKnkDEUf',
-      label: <Trans>Send feedback</Trans>,
-      key: 'Send feedback',
-    },
-    {
-      href: '',
-      label: <Trans>Manage analytics</Trans>,
-      key: 'Manage analytics',
-      onClick: (event: React.MouseEvent) => {
-        event.preventDefault();
-        setAnalyticsConfigOpen(true);
-      },
-    },
+    // {
+    //   href: 'https://discord.com/invite/7kHKnkDEUf',
+    //   label: <Trans>Send feedback</Trans>,
+    //   key: 'Send feedback',
+    // },
+    // {
+    //   href: '',
+    //   label: <Trans>Manage analytics</Trans>,
+    //   key: 'Manage analytics',
+    //   onClick: (event: React.MouseEvent) => {
+    //     event.preventDefault();
+    //     setAnalyticsConfigOpen(true);
+    //   },
+    // },
   ];
 
   return (
@@ -100,7 +100,7 @@ export function AppFooter() {
     >
       <Box sx={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
         {FOOTER_LINKS.map((link) => (
-          <StyledLink onClick={link.onClick} key={link.key} href={link.href}>
+          <StyledLink key={link.key} href={link.href}>
             <Typography variant="caption">{link.label}</Typography>
           </StyledLink>
         ))}

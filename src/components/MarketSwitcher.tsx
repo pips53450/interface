@@ -1,38 +1,35 @@
-import { ChevronDownIcon } from '@heroicons/react/outline';
-import { Trans } from '@lingui/macro';
 import {
   Box,
-  ListItemText,
-  MenuItem,
-  SvgIcon,
+  // ListItemText,
+  // MenuItem,
+  // SvgIcon,
   TextField,
   Tooltip,
   Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import { useRootStore } from 'src/store/root';
 import { BaseNetworkConfig } from 'src/ui-config/networksConfig';
 import { DASHBOARD } from 'src/utils/mixPanelEvents';
 
 import { useProtocolDataContext } from '../hooks/useProtocolDataContext';
 import {
-  availableMarkets,
+  // availableMarkets,
   CustomMarket,
-  ENABLE_TESTNET,
+  // ENABLE_TESTNET,
   MarketDataType,
   marketsData,
   networkConfigs,
-  STAGING_ENV,
+  // STAGING_ENV,
 } from '../utils/marketsAndNetworksConfig';
-import StyledToggleButton from './StyledToggleButton';
-import StyledToggleButtonGroup from './StyledToggleButtonGroup';
+// import StyledToggleButton from './StyledToggleButton';
+// import StyledToggleButtonGroup from './StyledToggleButtonGroup';
 
 export const getMarketInfoById = (marketId: CustomMarket) => {
   const market: MarketDataType = marketsData[marketId as CustomMarket];
   const network: BaseNetworkConfig = networkConfigs[market.chainId];
-
   return { market, network };
 };
 
@@ -69,10 +66,10 @@ type MarketLogoProps = {
   testChainName?: string;
 };
 
-export const MarketLogo = ({ size, logo, testChainName }: MarketLogoProps) => {
+export const MarketLogo = ({ size, testChainName }: MarketLogoProps) => {
   return (
     <Box sx={{ mr: 2, width: size, height: size, position: 'relative' }}>
-      <img src={logo} alt="" width="100%" height="100%" />
+      <img src="/icons/networks/scroll.svg" alt="" width="100%" height="100%" />
 
       {testChainName && (
         <Tooltip title={testChainName} arrow>
@@ -101,40 +98,42 @@ export const MarketLogo = ({ size, logo, testChainName }: MarketLogoProps) => {
   );
 };
 
-enum SelectedMarketVersion {
-  V2,
-  V3,
-}
+// enum SelectedMarketVersion {
+//   V2,
+//   V3,
+// }
 
 export const MarketSwitcher = () => {
   const { currentMarket, setCurrentMarket } = useProtocolDataContext();
-  const [selectedMarketVersion, setSelectedMarketVersion] = useState<SelectedMarketVersion>(
-    SelectedMarketVersion.V3
-  );
+  // const [selectedMarketVersion, setSelectedMarketVersion] = useState<SelectedMarketVersion>(
+  //   SelectedMarketVersion.V3
+  // );
   const theme = useTheme();
   const upToLG = useMediaQuery(theme.breakpoints.up('lg'));
   const downToXSM = useMediaQuery(theme.breakpoints.down('xsm'));
   const trackEvent = useRootStore((store) => store.trackEvent);
 
-  const isV3MarketsAvailable = availableMarkets
-    .map((marketId: CustomMarket) => {
-      const { market } = getMarketInfoById(marketId);
+  // const isV3MarketsAvailable = availableMarkets
+  //   .map((marketId: CustomMarket) => {
+  //     const { market } = getMarketInfoById(marketId);
 
-      return market.v3;
-    })
-    .some((item) => !!item);
+  //     return market.v3;
+  //   })
+  //   .some((item) => !!item);
 
   const handleMarketSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     trackEvent(DASHBOARD.CHANGE_MARKET, { market: e.target.value });
     setCurrentMarket(e.target.value as unknown as CustomMarket);
   };
-
   return (
     <TextField
       select
       aria-label="select market"
       data-cy="marketSelector"
       value={currentMarket}
+      inputProps={{
+        readOnly: true, // 입력 필드를 읽기 전용으로 설정
+      }}
       onChange={handleMarketSelect}
       sx={{
         mr: 2,
@@ -145,11 +144,11 @@ export const MarketSwitcher = () => {
       SelectProps={{
         native: false,
         className: 'MarketSwitcher__select',
-        IconComponent: (props) => (
-          <SvgIcon fontSize="medium" {...props}>
-            <ChevronDownIcon />
-          </SvgIcon>
-        ),
+        IconComponent: () =>
+          // <SvgIcon fontSize="medium" {...props}>
+          //   <ChevronDownIcon />
+          // </SvgIcon>
+          null,
         renderValue: (marketId) => {
           const { market, network } = getMarketInfoById(marketId as CustomMarket);
           return (
@@ -171,7 +170,7 @@ export const MarketSwitcher = () => {
                   {getMarketHelpData(market.marketTitle).name} {market.isFork ? 'Fork' : ''}
                   {upToLG && ' Market'}
                 </Typography>
-                {market.v3 ? (
+                {/* {market.v3 ? (
                   <Box
                     sx={{
                       color: '#fff',
@@ -193,7 +192,7 @@ export const MarketSwitcher = () => {
                   >
                     <Typography variant="subheader2">V2</Typography>
                   </Box>
-                )}
+                )} */}
               </Box>
             </Box>
           );
@@ -221,7 +220,7 @@ export const MarketSwitcher = () => {
         },
       }}
     >
-      <Box>
+      {/* <Box>
         <Typography variant="subheader2" color="text.secondary" sx={{ px: 4, pt: 2 }}>
           <Trans>
             {ENABLE_TESTNET || STAGING_ENV ? 'Select Aave Testnet Market' : 'Select Aave Market'}
@@ -345,7 +344,7 @@ export const MarketSwitcher = () => {
             </ListItemText>
           </MenuItem>
         );
-      })}
+      })} */}
     </TextField>
   );
 };

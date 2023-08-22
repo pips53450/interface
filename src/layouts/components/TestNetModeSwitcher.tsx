@@ -26,6 +26,7 @@ export const TestNetModeSwitcher = ({ component = ListItem }: TestNetModeSwitche
     <Box
       component={component}
       onClick={toggleTestnetsEnabled}
+      title="Coming soon" //must be modified
       sx={{
         cursor: 'pointer',
         color: { xs: '#F1F1F3', md: 'text.primary' },

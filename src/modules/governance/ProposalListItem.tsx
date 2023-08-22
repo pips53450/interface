@@ -1,7 +1,7 @@
-import { AaveGovernanceV2 } from '@bgd-labs/aave-address-book';
 import { ShieldExclamationIcon } from '@heroicons/react/outline';
 import { Trans } from '@lingui/macro';
 import { Box, Typography, useTheme } from '@mui/material';
+import { AaveGovernanceV2 } from '@scrollteam/aave-address-book';
 import { GovernancePageProps } from 'pages/governance/index.governance';
 import { CheckBadge } from 'src/components/primitives/CheckBadge';
 import { Link, ROUTES } from 'src/components/primitives/Link';

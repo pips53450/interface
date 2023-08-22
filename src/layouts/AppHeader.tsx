@@ -85,7 +85,7 @@ export function AppHeader() {
       <Typography variant="subheader1">
         <Trans>Testnet mode is ON</Trans>
       </Typography>
-      <Typography variant="description">
+      {/* <Typography variant="description">
         <Trans>The app is running in testnet mode. Learn how it works in</Trans>{' '}
         <Link
           href="https://docs.aave.com/faq/testing-aave"
@@ -93,7 +93,7 @@ export function AppHeader() {
         >
           FAQ.
         </Link>
-      </Typography>
+      </Typography> */}
       <Button variant="outlined" sx={{ mt: '12px' }} onClick={disableTestnet}>
         <Trans>Disable testnet</Trans>
       </Button>

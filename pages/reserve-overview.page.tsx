@@ -21,7 +21,6 @@ export default function ReserveOverview() {
   const router = useRouter();
   const { reserves } = useAppDataContext();
   const underlyingAsset = router.query.underlyingAsset as string;
-
   const [mode, setMode] = useState<'overview' | 'actions' | ''>('overview');
   const trackEvent = useRootStore((store) => store.trackEvent);
 

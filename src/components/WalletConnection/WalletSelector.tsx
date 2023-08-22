@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro';
-import { Box, Button, InputBase, Link, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, InputBase, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { UnsupportedChainIdError } from '@web3-react/core';
 import { NoEthereumProviderError } from '@web3-react/injected-connector';
 import { utils } from 'ethers';
@@ -209,7 +209,7 @@ export const WalletSelector = () => {
         walletName="Browser wallet"
         walletType={WalletType.INJECTED}
       />
-      <WalletRow
+      {/* <WalletRow
         key="walletconnect_wallet"
         walletName="WalletConnect"
         walletType={WalletType.WALLET_CONNECT}
@@ -220,7 +220,7 @@ export const WalletSelector = () => {
         walletType={WalletType.WALLET_LINK}
       />
       <WalletRow key="torus_wallet" walletName="Torus" walletType={WalletType.TORUS} />
-      <WalletRow key="frame_wallet" walletName="Frame" walletType={WalletType.FRAME} />
+      <WalletRow key="frame_wallet" walletName="Frame" walletType={WalletType.FRAME} /> */}
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, padding: '10px 0' }}>
         <Typography variant="subheader1" color="text.secondary">
           <Trans>Track wallet balance in read-only mode</Trans>
@@ -268,7 +268,7 @@ export const WalletSelector = () => {
           <Trans>Track wallet</Trans>
         </Button>
       </form>
-      {validAddressError && (
+      {/* {validAddressError && (
         <Typography variant="helperText" color="error.main">
           <Trans>Please enter a valid wallet address.</Trans>
         </Typography>
@@ -280,7 +280,7 @@ export const WalletSelector = () => {
             Read our FAQ
           </Link>
         </Trans>
-      </Typography>
+      </Typography> */}
       <Typography variant="helperText">
         <Trans>
           Wallets are provided by External Providers and by selecting you agree to Terms of those
